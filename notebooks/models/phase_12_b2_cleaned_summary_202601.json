@@ -1,0 +1,54 @@
+{
+  "phase": "12.5",
+  "timestamp": "2026-01-12T15:45:02.534674",
+  "version": "202601",
+  "dataset": {
+    "total_rows": 2411,
+    "train_size": 1687,
+    "val_size": 361,
+    "test_size": 363,
+    "features_used": 18,
+    "target_column": "cleaned_target"
+  },
+  "metrics_b2_cleaned": {
+    "MAE": 398.4009430756582,
+    "RMSE": 625.3754970102375,
+    "R2": 0.7985911454880845,
+    "MAPE": 2289.6464439867086
+  },
+  "comparison_with_original": {
+    "original_mae": null,
+    "cleaned_mae": 398.4009430756582,
+    "change_pct": null
+  },
+  "segment_analysis": {
+    "high_mape_states": [
+      "ANDAMAN AND NICOBAR ISLANDS",
+      "ANDHRA PRADESH",
+      "CHHATTISGARH",
+      "DADRA AND NAGAR HAVELI AND DAMAN AND DIU",
+      "JAMMU AND KASHMIR",
+      "KARNATAKA",
+      "LADAKH",
+      "ODISHA",
+      "PUDUCHERRY",
+      "RAJASTHAN",
+      "SIKKIM",
+      "TELANGANA",
+      "TRIPURA",
+      "UTTAR PRADESH",
+      "UTTARAKHAND",
+      "WEST BENGAL"
+    ],
+    "high_mape_count": 16,
+    "extreme_mape_states_check": {
+      "JAMMU AND KASHMIR": 27432.24734384623,
+      "ODISHA": 11800.236328527071
+    }
+  },
+  "safety_check": {
+    "passed": true,
+    "new_regressions": 0,
+    "recommendation": "B2 on cleaned data maintains or improves performance"
+  }
+}

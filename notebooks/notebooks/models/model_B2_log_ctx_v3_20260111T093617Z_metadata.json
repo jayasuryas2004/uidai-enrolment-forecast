@@ -1,0 +1,89 @@
+{
+  "model_name": "B2_log_ctx_v3",
+  "timestamp": "20260111T093617Z",
+  "features": [
+    "month",
+    "year",
+    "quarter",
+    "is_scheme_month",
+    "is_deadline_month",
+    "is_campaign_month",
+    "any_policy_event",
+    "is_holiday_peak",
+    "is_fiscal_year_start",
+    "is_fiscal_year_end",
+    "is_quarter_start",
+    "is_quarter_end",
+    "lag_1m",
+    "lag_3m",
+    "lag_12m",
+    "roll_mean_3m",
+    "roll_mean_6m",
+    "roll_std_3m",
+    "roll_lag1m_mean_3m",
+    "roll_lag1m_std_3m",
+    "roll_lag1m_max_3m",
+    "roll_lag1m_mean_6m",
+    "roll_lag1m_std_6m",
+    "roll_lag1m_max_6m",
+    "is_drive_month",
+    "is_closure_month",
+    "is_scheme_deadline",
+    "state_month_interaction",
+    "month_drive_interaction"
+  ],
+  "n_features": 29,
+  "feature_groups": {
+    "base_b2": [
+      "month",
+      "year",
+      "quarter",
+      "is_scheme_month",
+      "is_deadline_month",
+      "is_campaign_month",
+      "any_policy_event",
+      "is_holiday_peak",
+      "is_fiscal_year_start",
+      "is_fiscal_year_end",
+      "is_quarter_start",
+      "is_quarter_end",
+      "lag_1m",
+      "lag_3m",
+      "lag_12m",
+      "roll_mean_3m",
+      "roll_mean_6m",
+      "roll_std_3m"
+    ],
+    "rolling_stability": [
+      "roll_lag1m_mean_3m",
+      "roll_lag1m_std_3m",
+      "roll_lag1m_max_3m",
+      "roll_lag1m_mean_6m",
+      "roll_lag1m_std_6m",
+      "roll_lag1m_max_6m"
+    ],
+    "policy_events": [
+      "is_drive_month",
+      "is_closure_month",
+      "is_scheme_deadline"
+    ],
+    "interaction_features": [
+      "state_month_interaction",
+      "month_drive_interaction"
+    ]
+  },
+  "target_transform": "log(1 + y)",
+  "model_type": "XGBRegressor",
+  "train_shape": [
+    1996,
+    29
+  ],
+  "val_shape": [
+    250,
+    29
+  ],
+  "test_shape": [
+    250,
+    29
+  ]
+}

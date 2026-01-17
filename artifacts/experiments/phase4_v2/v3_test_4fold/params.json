@@ -1,0 +1,15 @@
+{
+  "lags": [
+    1,
+    2,
+    3,
+    6
+  ],
+  "rolling_windows": [
+    3,
+    6
+  ],
+  "gap_months": 1,
+  "min_train_months": 3,
+  "n_features": 47
+}

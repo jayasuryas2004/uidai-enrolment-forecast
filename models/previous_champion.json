@@ -1,0 +1,9 @@
+{
+  "version": "B2_202601",
+  "model_file": "model_B2_global_B2_202601.joblib",
+  "metadata_file": "model_B2_global_B2_202601_metadata.json",
+  "original_updated_at": "2026-01-10T20:30:27.107127",
+  "archived_at": "2026-01-12T14:32:43.332665",
+  "reason": "Superseded by B2 in offline evaluation (Phase 11.7/12)",
+  "archive_source": "Phase 13 - Champion vs B2 Comparison & Archive"
+}

@@ -1,0 +1,49 @@
+{
+  "split": {
+    "train": {
+      "r2": 0.9998831677403798,
+      "mae": 15.056698810743042,
+      "rmse": 19.99666091355923
+    },
+    "val": {
+      "r2": 0.9997742770365905,
+      "mae": 10.590335868996048,
+      "rmse": 15.301872297235565
+    },
+    "test": {
+      "r2": 0.9980210266834676,
+      "mae": 29.712101953859264,
+      "rmse": 54.866987492784
+    }
+  },
+  "model_type": "xgboost_phase4_v2_enhanced_features",
+  "best_params": {
+    "max_depth": 3,
+    "learning_rate": 0.03,
+    "subsample": 0.7,
+    "colsample_bytree": 0.9,
+    "reg_lambda": 1.0,
+    "reg_alpha": 0.1,
+    "n_estimators": 2000
+  },
+  "n_features": 31,
+  "feature_enhancements": [
+    "quarter",
+    "financial_year",
+    "is_financial_year_start",
+    "is_financial_year_end",
+    "is_festival_month",
+    "group_long_term_mean",
+    "group_long_term_std",
+    "rolling_3_mean",
+    "rolling_6_mean",
+    "ratio_to_state_mean"
+  ],
+  "config": {
+    "data_path": "data\\processed\\district_month_modeling.csv",
+    "train_end": "2025-09-30",
+    "val_end": "2025-10-31",
+    "n_trials": 15,
+    "random_seed": 42
+  }
+}

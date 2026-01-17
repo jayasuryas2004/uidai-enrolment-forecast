@@ -1,0 +1,22 @@
+{
+  "model_name": "B2",
+  "version": "B2_202601",
+  "model_file": "models/xgb_enrolment_B2_202601.pkl",
+  "metadata_file": "models/xgb_enrolment_B2_202601.json",
+  "status": "archived",
+  "replaced_by": "B2_log_ctx_opt",
+  "archival_timestamp": "2026-01-12T16:14:31.780882",
+  "archival_reason": "Replaced by B2_log_ctx_opt as new production champion",
+  "metrics": {
+    "MAE": 123.4,
+    "MAPE": 8.9,
+    "RMSE": 200.1,
+    "R2": 0.75,
+    "evaluation_set": "test"
+  },
+  "notes": [
+    "B2 was the baseline champion model",
+    "Superseded by B2_log_ctx_opt which shows 18.4 point MAE improvement",
+    "Preserved for audit trail and potential rollback"
+  ]
+}

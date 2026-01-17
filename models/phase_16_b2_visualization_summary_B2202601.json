@@ -1,0 +1,49 @@
+{
+  "phase": "16",
+  "description": "Rebuild all evaluation plots using real data and current champion (B2)",
+  "champion_version": "B2_202601",
+  "generated_at": "2026-01-12T15:45:06.494688",
+  "overall_metrics": {
+    "mae": 498.9291422450838,
+    "rmse": 778.7993628266099,
+    "r2": 0.2673342502741357,
+    "mape": 1733.1476316816563,
+    "n_samples": 363
+  },
+  "outputs": {
+    "figures": [
+      "..\\plots\\b2_champion_error_distribution_B2202601.png",
+      "..\\plots\\b2_champion_actual_vs_predicted_B2202601.png",
+      "..\\plots\\b2_champion_state_mae_B2202601.png",
+      "..\\plots\\b2_champion_state_heatmap_B2202601.png"
+    ],
+    "csv_tables": [
+      "..\\models\\b2_champion_errors_by_state_B2202601.csv",
+      "..\\models\\b2_champion_errors_by_month_B2202601.csv",
+      "..\\models\\b2_champion_errors_by_bucket_B2202601.csv"
+    ]
+  },
+  "weak_segments": {
+    "high_mape_states": [
+      "ANDHRA PRADESH",
+      "BIHAR",
+      "WEST BENGAL",
+      "RAJASTHAN",
+      "UTTAR PRADESH",
+      "JAMMU AND KASHMIR",
+      "TELANGANA",
+      "ODISHA",
+      "PUNJAB",
+      "CHHATTISGARH",
+      "UTTARAKHAND",
+      "PUDUCHERRY",
+      "DADRA AND NAGAR HAVELI AND DAMAN AND DIU",
+      "LADAKH",
+      "SIKKIM",
+      "ANDAMAN AND NICOBAR ISLANDS"
+    ],
+    "under_predicted_months": [
+      "2025-11"
+    ]
+  }
+}

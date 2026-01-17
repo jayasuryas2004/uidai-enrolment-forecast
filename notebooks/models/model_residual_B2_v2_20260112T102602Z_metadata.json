@@ -1,0 +1,27 @@
+{
+  "timestamp": "20260112T102602Z",
+  "model_type": "XGBRegressor",
+  "training_rows": 1365,
+  "excluded_rows": 382,
+  "excluded_bucket": "Very Small (<100)",
+  "features": [
+    "month",
+    "year",
+    "quarter",
+    "is_scheme_month",
+    "is_deadline_month",
+    "is_campaign_month",
+    "any_policy_event",
+    "is_holiday_peak",
+    "is_fiscal_year_start",
+    "is_fiscal_year_end",
+    "is_quarter_start",
+    "is_quarter_end",
+    "lag_1m",
+    "lag_3m",
+    "lag_12m",
+    "roll_mean_3m",
+    "roll_mean_6m",
+    "roll_std_3m"
+  ]
+}

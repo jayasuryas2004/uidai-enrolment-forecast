@@ -1,0 +1,23 @@
+# UIDAI Enrolment Forecast Dashboard - Production Dependencies
+# Generated for Streamlit Cloud deployment
+
+# Core Framework
+streamlit>=1.38.0
+
+# Data Processing
+pandas>=2.2.0
+numpy>=1.26.0
+
+# Machine Learning
+xgboost>=2.1.0
+scikit-learn>=1.5.0
+joblib>=1.4.0
+
+# Visualization
+plotly>=5.22.0
+
+# HTTP requests (for Ollama LLM - optional)
+requests>=2.31.0
+
+# Note: LightGBM is optional (used in experiments only)
+# lightgbm>=4.3.0

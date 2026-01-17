@@ -1,0 +1,50 @@
+2026-01-09 15:05:55 | INFO     | uidai_asris | Logging initialized. Log file: C:\MyProjects\uidai-asris\logs\training_20260109_150555.log
+2026-01-09 15:05:55 | INFO     | uidai_asris | ============================================================
+2026-01-09 15:05:55 | INFO     | uidai_asris | PIPELINE START
+2026-01-09 15:05:55 | INFO     | uidai_asris | ============================================================
+2026-01-09 15:05:55 | INFO     | uidai_asris | Project root: C:\MyProjects\uidai-asris
+2026-01-09 15:05:55 | INFO     | uidai_asris | Phase 2-3: Starting data pipeline
+2026-01-09 15:05:55 | INFO     | src.data_pipeline | ============================================================
+2026-01-09 15:05:55 | INFO     | src.data_pipeline | DATA PIPELINE START
+2026-01-09 15:05:55 | INFO     | src.data_pipeline | ============================================================
+2026-01-09 15:05:55 | INFO     | src.data_pipeline | Loading data from C:\MyProjects\uidai-asris\data\processed\district_month_modeling.csv
+2026-01-09 15:05:55 | INFO     | src.data_pipeline | ✓ Loaded 2,496 rows × 23 columns from district_month_modeling.csv
+2026-01-09 15:05:55 | INFO     | src.data_pipeline | Starting data cleaning
+2026-01-09 15:05:55 | INFO     | src.data_pipeline | ✓ Cleaned data: 2,496 rows, sorted by ['month_date', 'state', 'district']
+2026-01-09 15:05:55 | INFO     | src.data_pipeline | Building feature matrix
+2026-01-09 15:05:55 | INFO     | src.data_pipeline | ✓ Built features: 18 numeric, 0 categorical
+2026-01-09 15:05:55 | INFO     | src.data_pipeline | Creating train/val split with 20% validation
+2026-01-09 15:05:55 | INFO     | src.data_pipeline | ✓ Train: 1,996 rows (up to 2025-11-01 00:00:00)
+2026-01-09 15:05:55 | INFO     | src.data_pipeline | ✓ Val:   500 rows (2025-11-01 00:00:00 to 2025-12-01 00:00:00)
+2026-01-09 15:05:55 | INFO     | src.data_pipeline | ============================================================
+2026-01-09 15:05:55 | INFO     | src.data_pipeline | DATA PIPELINE COMPLETE
+2026-01-09 15:05:55 | INFO     | src.data_pipeline | ============================================================
+2026-01-09 15:05:55 | INFO     | uidai_asris | Data pipeline complete: 1,996 train, 500 val samples
+2026-01-09 15:05:55 | INFO     | uidai_asris | Phase 4: Starting model training
+2026-01-09 15:05:55 | INFO     | src.model_train | Building pipeline with 18 numeric, 0 categorical features
+2026-01-09 15:05:55 | INFO     | src.model_train | Training model with 1,996 samples
+2026-01-09 15:05:56 | INFO     | src.model_train | Best iteration: 49, best score: 475.9693
+2026-01-09 15:05:56 | INFO     | uidai_asris | Training complete. Best iteration: 49
+2026-01-09 15:05:56 | INFO     | uidai_asris | Train MAE: 318.33, Val MAE: 329.9437619628906
+2026-01-09 15:05:56 | INFO     | uidai_asris | Phase 4.6: Saving model artifacts
+2026-01-09 15:05:56 | INFO     | src.model_train | Model saved to C:\MyProjects\uidai-asris\models\uidai_xgb_champion_202511.joblib
+2026-01-09 15:05:56 | INFO     | src.model_train | Metadata saved to C:\MyProjects\uidai-asris\models\uidai_xgb_champion_202511_metadata.json
+2026-01-09 15:05:56 | INFO     | uidai_asris | Model saved: C:\MyProjects\uidai-asris\models\uidai_xgb_champion_202511.joblib
+2026-01-09 15:05:56 | INFO     | uidai_asris | Phase 5.1: Evaluating on validation set
+2026-01-09 15:05:56 | INFO     | src.model_eval | Validation - MAE: 329.94, RMSE: 475.97, R²: 0.6798
+2026-01-09 15:05:56 | INFO     | uidai_asris | XGBoost MAE: 329.94, Naive MAE: 288.98
+2026-01-09 15:05:56 | INFO     | uidai_asris | MAE improvement: -14.2%
+2026-01-09 15:05:56 | INFO     | uidai_asris | Phase 5.2: Running drift detection
+2026-01-09 15:05:56 | INFO     | src.model_eval | Running drift checks on 5 features
+2026-01-09 15:05:56 | INFO     | src.model_eval | Drift check complete: 23 flags across 5 features
+2026-01-09 15:05:56 | INFO     | uidai_asris | Drift flags: 23
+2026-01-09 15:05:56 | INFO     | uidai_asris | Phase 5.4: Generating alerts
+2026-01-09 15:05:56 | INFO     | src.model_eval | Generating alerts for 500 records
+2026-01-09 15:05:56 | INFO     | src.model_eval | Generated 67 alerts (13.4%)
+2026-01-09 15:05:56 | INFO     | uidai_asris | Generated 67 alerts (13.4%)
+2026-01-09 15:05:56 | WARNING  | src.model_eval | Retraining recommended: ['5 features show drift (threshold: 3)']
+2026-01-09 15:05:56 | WARNING  | uidai_asris | Retraining recommended: ['5 features show drift (threshold: 3)']
+2026-01-09 15:05:56 | INFO     | uidai_asris | ============================================================
+2026-01-09 15:05:56 | INFO     | uidai_asris | PIPELINE COMPLETE
+2026-01-09 15:05:56 | INFO     | uidai_asris | ============================================================
+2026-01-09 15:05:56 | INFO     | uidai_asris | Final metrics - MAE: 329.94, R²: 0.6798

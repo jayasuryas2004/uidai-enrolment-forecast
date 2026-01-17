@@ -1,0 +1,54 @@
+{
+  "version": "202601",
+  "timestamp": "2026-01-12T15:45:01.840303",
+  "metric_used": "mae",
+  "top_n": 5,
+  "weak_states": [
+    {
+      "state": "West Bangal",
+      "mae": 1944.2743167877197
+    },
+    {
+      "state": "Chhattisgarh",
+      "mae": 1355.5022583007812
+    },
+    {
+      "state": "Westbengal",
+      "mae": 1342.813320159912
+    },
+    {
+      "state": "Andhra Pradesh",
+      "mae": 969.5355889002482
+    },
+    {
+      "state": "Bihar",
+      "mae": 928.906005859375
+    }
+  ],
+  "weak_months": [
+    {
+      "month": "January",
+      "mae": 620.0
+    },
+    {
+      "month": "March",
+      "mae": 580.0
+    },
+    {
+      "month": "September",
+      "mae": 510.0
+    },
+    {
+      "month": "December",
+      "mae": 480.0
+    },
+    {
+      "month": "June",
+      "mae": 350.0
+    }
+  ],
+  "recommendations": [
+    "Consider adding state-specific features or weights for: ['West Bangal', 'Chhattisgarh', 'Westbengal']",
+    "Investigate seasonality patterns for months: ['January', 'March', 'September']"
+  ]
+}

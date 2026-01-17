@@ -1,0 +1,20 @@
+{
+  "timestamp": "20260111T083631Z",
+  "phase": "16.1",
+  "model_type": "residual_booster",
+  "base_champion": "B2_202601",
+  "model_path": "models\\model_residual_B2_20260111T083631Z.joblib",
+  "eval_metrics": {
+    "b2_mae": 1046.2159198396796,
+    "b2_rmse": 1477.3819132667518,
+    "b2_r2": -0.00023953886481131725,
+    "b2_mape": 5041.713696530916,
+    "boosted_mae": 56.099077682838804,
+    "boosted_rmse": 155.30621483677186,
+    "boosted_r2": 0.9889465937441686,
+    "boosted_mape": 8.725841979741451
+  },
+  "eval_csv": "residual_booster_eval_20260111T083631Z.csv",
+  "promotion_status": "no_auto_promotion",
+  "notes": "Residual booster trained on B2 champion residuals; results logged for manual review."
+}

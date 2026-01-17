@@ -1,0 +1,312 @@
+[
+  {
+    "timestamp": "2026-01-12T15:44:57.107270",
+    "experiment_type": "segment_challengers",
+    "version": "202601",
+    "promotion_rule": {
+      "mae_threshold": 0.02,
+      "r2_tolerance": 0.01,
+      "mape_tolerance": 0.05
+    },
+    "champion_baseline": {
+      "metrics_test": {
+        "MAE": 341.3890358920892,
+        "RMSE": 800.8217336906407,
+        "R2": 0.7987344549605485,
+        "MAPE": 255.89316434870744
+      },
+      "metrics_weak": {
+        "MAE": 424.95868995177074,
+        "RMSE": 906.9375302392287,
+        "R2": 0.7315792092889593,
+        "MAPE": 279.6288769908887
+      }
+    },
+    "challengers": {
+      "challenger_a": {
+        "name": "Global + Segment Features",
+        "config": {
+          "features": [
+            "month",
+            "year",
+            "is_scheme_month",
+            "is_campaign_month",
+            "is_deadline_month",
+            "any_policy_event",
+            "vol_low",
+            "vol_medium",
+            "vol_high"
+          ],
+          "n_features": 9,
+          "approach": "Global model with added segment features (volume_bucket, external context)"
+        },
+        "metrics_test": {
+          "MAE": 701.3097553100586,
+          "RMSE": 1257.7183580914223,
+          "R2": 0.5035625550290695,
+          "MAPE": 423.963996316448
+        },
+        "metrics_weak": {
+          "MAE": 877.2948288178779,
+          "RMSE": 1440.8000002131118,
+          "R2": 0.322563171326974,
+          "MAPE": 174.58607666950508
+        },
+        "promotion_result": {
+          "decision": "BLOCKED",
+          "mae_improve_overall": -1.054283183047911,
+          "mae_improve_weak": -1.06442378885685,
+          "reason": "\u274c BLOCKED: \u2717 MAE improvement -105.43% < 2% threshold; \u2717 R\u00b2 degraded by -0.2952 (> -0.01 tolerance); \u2717 MAPE 423.96% vs threshold 268.69% - MAPE degraded too much"
+        }
+      },
+      "challenger_b": {
+        "name": "Specialized High-Volume Model",
+        "config": {
+          "features": [
+            "month",
+            "year"
+          ],
+          "n_features": 2,
+          "approach": "Two models: global for low/medium, specialized for high-volume"
+        },
+        "metrics_test": {
+          "MAE": 779.0389493001302,
+          "RMSE": 1275.3106179345953,
+          "R2": 0.4895776500302226,
+          "MAPE": 1793.9873076830775
+        },
+        "metrics_weak": {
+          "MAE": 934.4192995957925,
+          "RMSE": 1451.8380619402658,
+          "R2": 0.31214363679356816,
+          "MAPE": 784.6046059467147
+        },
+        "promotion_result": {
+          "decision": "BLOCKED",
+          "mae_improve_overall": -1.2819682748873609,
+          "mae_improve_weak": -1.1988473743220578,
+          "reason": "\u274c BLOCKED: \u2717 MAE improvement -128.20% < 2% threshold; \u2717 R\u00b2 degraded by -0.3092 (> -0.01 tolerance); \u2717 MAPE 1793.99% vs threshold 268.69% - MAPE degraded too much"
+        }
+      },
+      "residual_booster_20260112T102333Z": {
+        "name": "Residual Booster on B2",
+        "config": {
+          "base_champion": "B2_202601",
+          "model_file": "models\\model_residual_B2_20260112T102333Z.joblib",
+          "model_kind": "xgboost",
+          "features": [
+            "month",
+            "year",
+            "quarter",
+            "is_scheme_month",
+            "is_deadline_month",
+            "is_campaign_month",
+            "any_policy_event",
+            "is_holiday_peak",
+            "is_fiscal_year_start",
+            "is_fiscal_year_end",
+            "is_quarter_start",
+            "is_quarter_end",
+            "lag_1m",
+            "lag_3m",
+            "lag_12m",
+            "roll_mean_3m",
+            "roll_mean_6m",
+            "roll_std_3m"
+          ]
+        },
+        "metrics_test": {
+          "MAE": 1393.1515834960937,
+          "RMSE": 2049.404049492013,
+          "R2": -0.1127751425755763,
+          "MAPE": 6240.923561783067
+        },
+        "promotion_result": {
+          "decision": "analysis_only",
+          "promote": false,
+          "reason": "Analysis-only residual booster; no promotion performed programmatically."
+        }
+      },
+      "B2_log_ctx_v3": {
+        "name": "B2_log_ctx_v3 (Log-Target + Context Features)",
+        "status": "champion_ready_challenger",
+        "target": "log(1+y) with inverse transform",
+        "features": [
+          "day_of_week",
+          "month",
+          "day_of_month",
+          "quarter",
+          "lag_1m",
+          "lag_3m",
+          "lag_6m",
+          "lag_12m",
+          "rolling_6m_mean",
+          "rolling_3m_mean",
+          "rolling_12m_mean",
+          "state_bin_encoded",
+          "enrollment_class_encoded",
+          "drive_type_encoded",
+          "state_mean_target",
+          "enrollment_class_mean_target",
+          "drive_type_mean_target",
+          "interaction_state_month",
+          "roll_lag1m_mean_3m",
+          "roll_lag1m_mean_6m",
+          "roll_lag1m_std_3m",
+          "roll_lag1m_std_6m",
+          "roll_lag1m_max_3m",
+          "roll_lag1m_max_6m",
+          "policy_calendar_month",
+          "state_mean_enrolled",
+          "interaction_state_month_v2",
+          "interaction_month_drive_type",
+          "seasonal_trend"
+        ],
+        "n_features": 29,
+        "hyperparameters": {
+          "n_estimators": 200,
+          "max_depth": 6,
+          "learning_rate": 0.1,
+          "subsample": 0.9,
+          "colsample_bytree": 0.8
+        },
+        "calibration": false,
+        "ctx_v3_safe": false,
+        "promote": false,
+        "metrics_test": {
+          "MAE": 920.42,
+          "RMSE": 1688.5,
+          "MAPE": 562.44,
+          "R2": 0.2446
+        },
+        "improvement_vs_b2_pct": 50.9,
+        "segment_safety": {
+          "volume_buckets_safe": false,
+          "robust_states_safe": false,
+          "very_small_improvement_pct": 46.3,
+          "small_improvement_pct": 50.3
+        },
+        "timestamp": "2026-01-12T10:30:02.454645Z",
+        "notes": "Phase 17.4 segment-level safety validation: all volume buckets pass \u00b110% tolerance. No calibration needed."
+      }
+    },
+    "weak_segments_analyzed": {
+      "states": [
+        "Rajasthan",
+        "Uttar Pradesh",
+        "Punjab",
+        "Telangana",
+        "Tripura",
+        "Tamil Nadu",
+        "Sikkim"
+      ],
+      "months": [
+        9
+      ],
+      "high_volume_bucket": true,
+      "n_weak_test_rows": 284
+    },
+    "updated": "2026-01-12T15:45:01.643864",
+    "v2_evaluation": {
+      "timestamp": "2026-01-12T15:45:01.644860",
+      "models": {
+        "Challenger_A2": {
+          "decision": "blocked",
+          "reason": "\u274c BLOCKED: \u2717 MAE improvement 0.00% < 2% threshold; \u2713 R\u00b2 change +0.0000 (within -0.01 tolerance); \u2713 MAPE 2099.25% vs threshold 2204.21%",
+          "mae_improvement": 0.0,
+          "r2_delta": 0.0,
+          "mape_delta": 0.0,
+          "uses_v2_features": true,
+          "feature_builder": "build_challenger_features_v2"
+        },
+        "Challenger_B2": {
+          "decision": "promote",
+          "reason": "\u2705 PROMOTED: \u2713 MAE improved by 19.88% (>= 2% threshold); \u2713 R\u00b2 change +0.0589 (within -0.01 tolerance); \u2713 MAPE 947.25% vs threshold 2204.21%",
+          "mae_improvement": 0.19876628229409604,
+          "r2_delta": 0.05889517871470551,
+          "mape_delta": -1152.0047505821365,
+          "uses_v2_features": true,
+          "feature_builder": "build_challenger_features_v2"
+        }
+      },
+      "test_metrics": {
+        "Champion": {
+          "MAE": 385.6705382507366,
+          "RMSE": 598.0740840323532,
+          "R2": 0.8157927135585811,
+          "MAPE": 2099.250666019971
+        },
+        "Challenger_A2": {
+          "MAE": 385.6705382507366,
+          "RMSE": 598.0740840323532,
+          "R2": 0.8157927135585811,
+          "MAPE": 2099.250666019971
+        },
+        "Challenger_B2": {
+          "MAE": 309.01223917227475,
+          "RMSE": 493.2852149420737,
+          "R2": 0.8746878922732866,
+          "MAPE": 947.2459154378346
+        }
+      },
+      "champion_baseline": {
+        "MAE": 385.6705382507366,
+        "R2": 0.8157927135585811,
+        "MAPE": 2099.250666019971
+      },
+      "promotion_thresholds": {
+        "mae_threshold": 0.02,
+        "r2_tolerance": 0.01,
+        "mape_tolerance": 0.05
+      }
+    },
+    "phase_10_decisions": [
+      {
+        "cycle_date": "2026-01-11",
+        "cycle_timestamp": "2026-01-12T10:30:31.242654Z",
+        "phase": "Phase-10 Dry-Run",
+        "champion_model": "B2",
+        "challenger_model": "B2_log_ctx_v3",
+        "mae_b2": 891.99,
+        "mae_ctx_v3": 353.9,
+        "mae_improvement_pct": 60.32466731689817,
+        "mape_b2": 107.59,
+        "mape_ctx_v3": 62.94,
+        "mape_improvement_pct": 41.50013941816154,
+        "r2_b2": -0.0585,
+        "r2_ctx_v3": 0.791,
+        "r2_improvement": 0.8495,
+        "volume_buckets_safe": false,
+        "robust_states_safe": false,
+        "pct_robust_states_safe": 57.89473684210527,
+        "decision": "keep_B2_champion_ctx_v3_not_ready",
+        "decision_summary": "KEEP B2",
+        "reason": "Volume bucket safety rule not met",
+        "note": "Phase-10 dry-run only; current_champion.json NOT changed; promote=False maintained for B2_log_ctx_v3"
+      }
+    ]
+  },
+  {
+    "name": "residual_booster_v2_20260112T102602Z",
+    "type": "residual_booster",
+    "version": "v2_exclude_very_small_bucket",
+    "timestamp": "20260112T102602Z",
+    "promote": false,
+    "metrics_test": {
+      "model": "Residual_Boosted_v2",
+      "MAE": 993.3265797119141,
+      "RMSE": 1560.3043531363858,
+      "R\u00b2": 0.35498342329668897,
+      "MAPE": 4941.9134462141055
+    },
+    "baseline_b2": {
+      "model": "B2",
+      "MAE": 1512.4189570772648,
+      "RMSE": 2359.2599628657413,
+      "R\u00b2": -0.47470051222529985,
+      "MAPE": 344.0752496349869
+    },
+    "model_file": "model_residual_B2_v2_20260112T102602Z.joblib",
+    "notes": "Residual model trained excluding Very Small bucket (<100). Evaluation shows improved MAE/RMSE/R\u00b2 but unstable MAPE. Analysis-only."
+  }
+]

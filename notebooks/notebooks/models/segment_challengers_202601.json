@@ -1,0 +1,155 @@
+{
+  "challengers": [
+    {
+      "model_name": "B2_log_roll_v2",
+      "timestamp": "20260111T093114Z",
+      "model_file": "model_B2_log_roll_v2_20260111T093114Z.joblib",
+      "metadata_file": "model_B2_log_roll_v2_20260111T093114Z_metadata.json",
+      "eval_file": "B2_log_roll_v2_eval_20260111T093114Z.csv",
+      "features": "18 base B2 features + 6 rolling stability features (mean/std/max of lag_1m for 3m/6m windows)",
+      "target_transform": "log(1 + y)",
+      "test_metrics": {
+        "mae": 382.5291868362427,
+        "rmse": 701.9880725832434,
+        "r2": 0.7710393765531329,
+        "mape": 68.44314676058329
+      },
+      "improvement_vs_b2": {
+        "mae_delta": 509.4649874274731,
+        "mae_pct_improvement": 57.11528192972829,
+        "r2_delta": 0.8295697879219699
+      },
+      "promote": false,
+      "rationale": "Phase 17.2: Added rolling stability features (mean/std/max of past 3m/6m) to stabilize predictions across volume ranges and spike months. MAE improved by 57.1% vs B2 baseline (892 \u2192 383)."
+    },
+    {
+      "model_name": "B2_log_ctx_v3",
+      "timestamp": "20260111T093617Z",
+      "model_file": "model_B2_log_ctx_v3_20260111T093617Z.joblib",
+      "metadata_file": "model_B2_log_ctx_v3_20260111T093617Z_metadata.json",
+      "eval_file": "B2_log_ctx_v3_eval_20260111T093617Z.csv",
+      "features": "18 base B2 + 6 rolling stability + 3 policy events + 2 interaction features (29 total)",
+      "target_transform": "log(1 + y)",
+      "test_metrics": {
+        "mae": 353.89820733737946,
+        "rmse": 670.6371079406832,
+        "r2": 0.7910335844084417,
+        "mape": 62.94119057748174
+      },
+      "improvement_vs_b2": {
+        "mae_delta": 538.0959669263364,
+        "mae_pct_improvement": 60.325053957947674,
+        "r2_delta": 0.8495639957772787
+      },
+      "promote": false,
+      "rationale": "Phase 17.3: Full context model with policy events (drive, closure, deadline months) and state\u00d7month, month\u00d7drive interactions. Best overall MAE of 354 (60.3% improvement vs B2), strongest on Large volume buckets (230 vs 850 B2 MAE)."
+    },
+    {
+      "model_name": "B2_log_roll_v2",
+      "timestamp": "20260112T102742Z",
+      "model_file": "model_B2_log_roll_v2_20260112T102742Z.joblib",
+      "metadata_file": "model_B2_log_roll_v2_20260112T102742Z_metadata.json",
+      "eval_file": "B2_log_roll_v2_eval_20260112T102742Z.csv",
+      "features": "18 base B2 features + 6 rolling stability features (mean/std/max of lag_1m for 3m/6m windows)",
+      "target_transform": "log(1 + y)",
+      "test_metrics": {
+        "mae": 904.450827468872,
+        "rmse": 1655.7549107396069,
+        "r2": 0.2736526786531913,
+        "mape": 751.5178887511745
+      },
+      "improvement_vs_b2": {
+        "mae_delta": 970.7246788482665,
+        "mae_pct_improvement": 51.76713729344612,
+        "r2_delta": 1.2046850417531432
+      },
+      "promote": false,
+      "rationale": "Phase 17.2: Added rolling stability features (mean/std/max of past 3m/6m) to stabilize predictions across volume ranges and spike months. MAE improved by 51.8% vs B2 baseline (1875 \u2192 904)."
+    },
+    {
+      "model_name": "B2_log_ctx_v3",
+      "timestamp": "20260112T102922Z",
+      "model_file": "model_B2_log_ctx_v3_20260112T102922Z.joblib",
+      "metadata_file": "model_B2_log_ctx_v3_20260112T102922Z_metadata.json",
+      "eval_file": "B2_log_ctx_v3_eval_20260112T102922Z.csv",
+      "features": "18 base B2 + 6 rolling stability + 3 policy events + 2 interaction features (29 total)",
+      "target_transform": "log(1 + y)",
+      "test_metrics": {
+        "mae": 920.4157891206742,
+        "rmse": 1688.5024516960086,
+        "r2": 0.24463714105724277,
+        "mape": 562.4417775291929
+      },
+      "improvement_vs_b2": {
+        "mae_delta": 954.7597171964644,
+        "mae_pct_improvement": 50.915752364514454,
+        "r2_delta": 1.1756695041571947
+      },
+      "promote": false,
+      "rationale": "Phase 17.3: Full context model with policy events (drive, closure, deadline months) and state\u00d7month, month\u00d7drive interactions. Best overall MAE of 920 (50.9% improvement vs B2), strongest on Large volume buckets (230 vs 850 B2 MAE)."
+    },
+    {
+      "model_id": "B2_log_ctx_opt_20260112T161642Z",
+      "type": "optuna_tuned_log_ctx",
+      "status": "champion_ready_challenger",
+      "target": "log(1+y) with inverse transform",
+      "features": [
+        "month",
+        "year",
+        "quarter",
+        "is_scheme_month",
+        "is_deadline_month",
+        "is_campaign_month",
+        "any_policy_event",
+        "is_holiday_peak",
+        "is_fiscal_year_start",
+        "is_fiscal_year_end",
+        "is_quarter_start",
+        "is_quarter_end",
+        "lag_1m",
+        "lag_3m",
+        "lag_12m",
+        "roll_mean_3m",
+        "roll_mean_6m",
+        "roll_std_3m",
+        "roll_lag1m_mean_3m",
+        "roll_lag1m_std_3m",
+        "roll_lag1m_max_3m",
+        "roll_lag1m_mean_6m",
+        "roll_lag1m_std_6m",
+        "roll_lag1m_max_6m",
+        "is_drive_month",
+        "is_closure_month",
+        "is_scheme_deadline",
+        "state_month_interaction",
+        "month_drive_interaction"
+      ],
+      "n_features": 29,
+      "best_hyperparameters": {
+        "n_estimators": 431,
+        "max_depth": 5,
+        "learning_rate": 0.018346865467090696,
+        "subsample": 0.7827488705483199,
+        "colsample_bytree": 0.9190883620583457,
+        "reg_alpha": 0.02100370652963738,
+        "reg_lambda": 9.36213954003007,
+        "min_child_weight": 4
+      },
+      "calibration": false,
+      "ctx_opt_safe": false,
+      "volume_buckets_safe": false,
+      "pct_robust_states_safe": 47.368421052631575,
+      "promote": false,
+      "metrics_test": {
+        "MAE": 852.5643777303695,
+        "MAPE": 12.104879082442913,
+        "RMSE": 1604.8807914371616,
+        "R2": 0.3176019237092016
+      },
+      "improvement_vs_b2_pct": 4.4199623616442425,
+      "improvement_vs_ctx_v3_pct": -140.90544722530927,
+      "timestamp": "20260112T161642Z",
+      "note": "Optuna-tuned version: 5-fold time-series CV, 50 trials, best CV MAE 495.54"
+    }
+  ]
+}

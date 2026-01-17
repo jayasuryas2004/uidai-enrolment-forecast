@@ -1,0 +1,219 @@
+{
+  "phase": "8.4",
+  "title": "Phase 8 Champion - Active Time-Series Features",
+  "date": "2026-01-12",
+  "summary": {
+    "total_active_features": 19,
+    "original_features_count": 17,
+    "new_ts_features_kept": 2,
+    "new_ts_features_dropped": 7,
+    "validation_mae": 380.21,
+    "validation_r2": 0.6689,
+    "ablation_threshold_mae": 2.0
+  },
+  "active_features": [
+    "age_0_5",
+    "age_5_17",
+    "age_18_greater",
+    "demo_age_5_17",
+    "demo_age_17_",
+    "bio_age_5_17",
+    "bio_age_17_",
+    "total_demo_updates",
+    "total_bio_updates",
+    "total_enrolment_prev_1",
+    "total_demo_updates_prev_1",
+    "total_bio_updates_prev_1",
+    "enrolment_diff_1",
+    "demo_updates_diff_1",
+    "bio_updates_diff_1",
+    "year",
+    "month",
+    "roll_3m_std",
+    "roll_6m_std"
+  ],
+  "feature_status": [
+    {
+      "feature": "lag_1",
+      "status": "OFF",
+      "category": "lag",
+      "justification": "Lags not helpful (\u0394MAE = -2.46); total_enrolment_prev_1 sufficient",
+      "in_active_list": false
+    },
+    {
+      "feature": "lag_2",
+      "status": "OFF",
+      "category": "lag",
+      "justification": "Lags not helpful (\u0394MAE = -2.46); total_enrolment_prev_1 sufficient",
+      "in_active_list": false
+    },
+    {
+      "feature": "lag_3",
+      "status": "OFF",
+      "category": "lag",
+      "justification": "Lags not helpful (\u0394MAE = -2.46); total_enrolment_prev_1 sufficient",
+      "in_active_list": false
+    },
+    {
+      "feature": "age_0_5",
+      "status": "ON",
+      "category": "original",
+      "justification": "Core feature from Phase 7 champion model",
+      "in_active_list": true
+    },
+    {
+      "feature": "age_18_greater",
+      "status": "ON",
+      "category": "original",
+      "justification": "Core feature from Phase 7 champion model",
+      "in_active_list": true
+    },
+    {
+      "feature": "age_5_17",
+      "status": "ON",
+      "category": "original",
+      "justification": "Core feature from Phase 7 champion model",
+      "in_active_list": true
+    },
+    {
+      "feature": "bio_age_17_",
+      "status": "ON",
+      "category": "original",
+      "justification": "Core feature from Phase 7 champion model",
+      "in_active_list": true
+    },
+    {
+      "feature": "bio_age_5_17",
+      "status": "ON",
+      "category": "original",
+      "justification": "Core feature from Phase 7 champion model",
+      "in_active_list": true
+    },
+    {
+      "feature": "bio_updates_diff_1",
+      "status": "ON",
+      "category": "original",
+      "justification": "Core feature from Phase 7 champion model",
+      "in_active_list": true
+    },
+    {
+      "feature": "demo_age_17_",
+      "status": "ON",
+      "category": "original",
+      "justification": "Core feature from Phase 7 champion model",
+      "in_active_list": true
+    },
+    {
+      "feature": "demo_age_5_17",
+      "status": "ON",
+      "category": "original",
+      "justification": "Core feature from Phase 7 champion model",
+      "in_active_list": true
+    },
+    {
+      "feature": "demo_updates_diff_1",
+      "status": "ON",
+      "category": "original",
+      "justification": "Core feature from Phase 7 champion model",
+      "in_active_list": true
+    },
+    {
+      "feature": "enrolment_diff_1",
+      "status": "ON",
+      "category": "original",
+      "justification": "Core feature from Phase 7 champion model",
+      "in_active_list": true
+    },
+    {
+      "feature": "month",
+      "status": "ON",
+      "category": "original",
+      "justification": "Core feature from Phase 7 champion model",
+      "in_active_list": true
+    },
+    {
+      "feature": "total_bio_updates",
+      "status": "ON",
+      "category": "original",
+      "justification": "Core feature from Phase 7 champion model",
+      "in_active_list": true
+    },
+    {
+      "feature": "total_bio_updates_prev_1",
+      "status": "ON",
+      "category": "original",
+      "justification": "Core feature from Phase 7 champion model",
+      "in_active_list": true
+    },
+    {
+      "feature": "total_demo_updates",
+      "status": "ON",
+      "category": "original",
+      "justification": "Core feature from Phase 7 champion model",
+      "in_active_list": true
+    },
+    {
+      "feature": "total_demo_updates_prev_1",
+      "status": "ON",
+      "category": "original",
+      "justification": "Core feature from Phase 7 champion model",
+      "in_active_list": true
+    },
+    {
+      "feature": "total_enrolment_prev_1",
+      "status": "ON",
+      "category": "original",
+      "justification": "Core feature from Phase 7 champion model",
+      "in_active_list": true
+    },
+    {
+      "feature": "year",
+      "status": "ON",
+      "category": "original",
+      "justification": "Core feature from Phase 7 champion model",
+      "in_active_list": true
+    },
+    {
+      "feature": "roll_3m_mean",
+      "status": "OFF",
+      "category": "rolling_mean",
+      "justification": "Rolling mean not helpful (\u0394MAE = -2.60)",
+      "in_active_list": false
+    },
+    {
+      "feature": "roll_6m_mean",
+      "status": "OFF",
+      "category": "rolling_mean",
+      "justification": "Rolling mean not helpful (\u0394MAE = -2.60)",
+      "in_active_list": false
+    },
+    {
+      "feature": "roll_3m_median",
+      "status": "OFF",
+      "category": "rolling_median",
+      "justification": "Rolling median not helpful (\u0394MAE = -3.41)",
+      "in_active_list": false
+    },
+    {
+      "feature": "roll_6m_median",
+      "status": "OFF",
+      "category": "rolling_median",
+      "justification": "Rolling median not helpful (\u0394MAE = -3.41)",
+      "in_active_list": false
+    },
+    {
+      "feature": "roll_3m_std",
+      "status": "ON",
+      "category": "rolling_std",
+      "justification": "Rolling std helpful (\u0394MAE = +6.77)",
+      "in_active_list": true
+    },
+    {
+      "feature": "roll_6m_std",
+      "status": "ON",
+      "category": "rolling_std",
+      "justification": "Rolling std helpful (\u0394MAE = +6.77)",
+      "in_active_list": true
+    }
+  ]
+}

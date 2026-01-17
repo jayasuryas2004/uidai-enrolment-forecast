@@ -1,0 +1,91 @@
+{
+  "experiment_name": "v3_test_4fold",
+  "model_version": "phase4_v3_enhanced",
+  "n_folds": 4,
+  "folds": [
+    {
+      "fold": 1,
+      "train_size": 119,
+      "val_size": 280,
+      "train_date_range": "2025-04 to 2025-06",
+      "val_date": "2025-09",
+      "mae": 342.8836534227644,
+      "rmse": 732.2216018699214,
+      "r2": 0.8618498659999481,
+      "n_features": 47
+    },
+    {
+      "fold": 2,
+      "train_size": 218,
+      "val_size": 962,
+      "train_date_range": "2025-04 to 2025-07",
+      "val_date": "2025-10",
+      "mae": 83.6608513814248,
+      "rmse": 200.88793070233325,
+      "r2": 0.9610959972452141,
+      "n_features": 47
+    },
+    {
+      "fold": 3,
+      "train_size": 498,
+      "val_size": 970,
+      "train_date_range": "2025-04 to 2025-09",
+      "val_date": "2025-11",
+      "mae": 48.70408986708553,
+      "rmse": 95.72572651316293,
+      "r2": 0.9941819834172028,
+      "n_features": 47
+    },
+    {
+      "fold": 4,
+      "train_size": 1460,
+      "val_size": 66,
+      "train_date_range": "2025-04 to 2025-10",
+      "val_date": "2025-12",
+      "mae": 21.382667765472874,
+      "rmse": 36.48668792021867,
+      "r2": 0.993848290910911,
+      "n_features": 47
+    }
+  ],
+  "mae_mean": 124.1578156091869,
+  "mae_std": 128.19613096889623,
+  "rmse_mean": 266.33048675140907,
+  "rmse_std": 275.35042008580155,
+  "r2_mean": 0.9527440343933191,
+  "r2_std": 0.05417141463579269,
+  "config": {
+    "lags": [
+      1,
+      2,
+      3,
+      6
+    ],
+    "rolling_windows": [
+      3,
+      6
+    ],
+    "gap_months": 1,
+    "min_train_months": 3,
+    "n_features": 47
+  },
+  "hyperparams": {
+    "objective": "reg:squarederror",
+    "n_estimators": 2000,
+    "learning_rate": 0.03,
+    "max_depth": 3,
+    "subsample": 0.7,
+    "colsample_bytree": 0.9,
+    "reg_lambda": 1.0,
+    "reg_alpha": 0.1
+  },
+  "leakage_prevention": {
+    "gap_months": 1,
+    "train_only_feature_engineering": true,
+    "train_only_encoders": true,
+    "expanding_window": true,
+    "no_shuffle": true,
+    "lag_shift_used": true,
+    "rolling_shift_used": true
+  }
+}

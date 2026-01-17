@@ -1,0 +1,9 @@
+{
+  "event": "B2_PROMOTED_TO_CHAMPION",
+  "timestamp": "2026-01-12T15:45:02.967951",
+  "previous_champion": "B2_202601",
+  "new_champion": "B2_202601",
+  "model_file": "model_B2_global_B2_202601.joblib",
+  "metadata_file": "model_B2_global_B2_202601_metadata.json",
+  "phase_14_decision": "B2_original"
+}

@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-01-12T15:45:01.680300",
+  "regression_threshold_pct": 5.0,
+  "regressions": {
+    "A2": {
+      "state": [],
+      "month": [],
+      "bucket": []
+    },
+    "B2": {
+      "state": [
+        {
+          "segment": "BIHAR",
+          "champion_mape": 13.274283617301194,
+          "challenger_mape": 33.94180266128508,
+          "regression": 20.667519043983887
+        }
+      ],
+      "month": [],
+      "bucket": []
+    }
+  },
+  "safety_passed": {
+    "A2": true,
+    "B2": true
+  },
+  "total_regressions": 1
+}

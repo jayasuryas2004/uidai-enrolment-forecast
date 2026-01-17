@@ -1,0 +1,48 @@
+{
+  "timestamp": "2026-01-12T15:45:01.607073",
+  "version": "v2_features",
+  "champion_comparable": false,
+  "models_evaluated": [
+    "Champion",
+    "A2",
+    "B2"
+  ],
+  "worst_states": {
+    "Champion": [
+      "CHHATTISGARH",
+      "KARNATAKA",
+      "JAMMU AND KASHMIR",
+      "ODISHA",
+      "WEST BENGAL"
+    ],
+    "A2": [
+      "CHHATTISGARH",
+      "KARNATAKA",
+      "JAMMU AND KASHMIR",
+      "ODISHA",
+      "WEST BENGAL"
+    ],
+    "B2": [
+      "BIHAR",
+      "CHHATTISGARH",
+      "JAMMU AND KASHMIR",
+      "UTTAR PRADESH",
+      "WEST BENGAL"
+    ]
+  },
+  "under_prediction_months": {
+    "Champion": [],
+    "A2": [],
+    "B2": []
+  },
+  "high_volume_bucket_mae": {
+    "Champion": 565.778903260523,
+    "A2": 565.778903260523,
+    "B2": 530.9600610019398
+  },
+  "overall_test_mae": {
+    "Champion": 385.6705382507366,
+    "A2": 385.6705382507366,
+    "B2": 309.01223917227475
+  }
+}

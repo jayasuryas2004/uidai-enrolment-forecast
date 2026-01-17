@@ -1,0 +1,26 @@
+{
+  "phase": "14",
+  "timestamp": "2026-01-12T15:45:02.921228",
+  "offline_comparison": {
+    "champion_mae": 385.6705382507366,
+    "champion_r2": 0.8157927135585811,
+    "b2_mae": 309.01223917227475,
+    "b2_r2": 0.8746878922732866,
+    "improvement_pct": 19.876628229409604
+  },
+  "segment_analysis": {
+    "b2_wins": 0,
+    "champion_wins": 0,
+    "segments_tested": 0
+  },
+  "all_time_best_offline": "B2_original",
+  "decision_confidence": "HIGH",
+  "recommendation": "PROMOTE B2",
+  "next_steps": [
+    "1. Stakeholder review of this recommendation",
+    "2. Deploy B2 to staging/UAT environment",
+    "3. Run parallel predictions for 2-4 weeks",
+    "4. Monitor online metrics vs offline expectations",
+    "5. Manual call to set_champion() after validation"
+  ]
+}

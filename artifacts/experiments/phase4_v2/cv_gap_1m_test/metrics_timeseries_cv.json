@@ -1,0 +1,70 @@
+{
+  "experiment_name": "cv_gap_1m_test",
+  "n_folds": 4,
+  "gap_months": 1,
+  "min_train_months": 3,
+  "folds": [
+    {
+      "fold": 1,
+      "train_size": 119,
+      "val_size": 280,
+      "train_date_range": "2025-04 to 2025-06",
+      "val_date": "2025-09",
+      "mae": 363.10510243007116,
+      "rmse": 764.3140085147693,
+      "r2": 0.8494745704960904
+    },
+    {
+      "fold": 2,
+      "train_size": 218,
+      "val_size": 962,
+      "train_date_range": "2025-04 to 2025-07",
+      "val_date": "2025-10",
+      "mae": 83.54483216220277,
+      "rmse": 198.57175138364832,
+      "r2": 0.9619879292100565
+    },
+    {
+      "fold": 3,
+      "train_size": 498,
+      "val_size": 970,
+      "train_date_range": "2025-04 to 2025-09",
+      "val_date": "2025-11",
+      "mae": 47.73439866347411,
+      "rmse": 95.88616070814675,
+      "r2": 0.9941624653414017
+    },
+    {
+      "fold": 4,
+      "train_size": 1460,
+      "val_size": 66,
+      "train_date_range": "2025-04 to 2025-10",
+      "val_date": "2025-12",
+      "mae": 23.260963088635243,
+      "rmse": 36.66101724640311,
+      "r2": 0.9937893661182741
+    }
+  ],
+  "mae_mean": 129.41132408609582,
+  "mae_std": 136.61582668606823,
+  "rmse_mean": 273.8582344632419,
+  "rmse_std": 289.0291939091439,
+  "r2_mean": 0.9498535827914556,
+  "r2_std": 0.05940710942674653,
+  "hyperparams": {
+    "objective": "reg:squarederror",
+    "n_estimators": 2000,
+    "learning_rate": 0.03,
+    "max_depth": 3,
+    "subsample": 0.7,
+    "colsample_bytree": 0.9,
+    "reg_lambda": 1.0,
+    "reg_alpha": 0.1
+  },
+  "leakage_prevention": {
+    "gap_months": 1,
+    "train_only_feature_engineering": true,
+    "expanding_window": true,
+    "no_shuffle": true
+  }
+}

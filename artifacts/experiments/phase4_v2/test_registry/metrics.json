@@ -1,0 +1,32 @@
+{
+  "split": {
+    "train": {
+      "r2": 0.9996977129025179,
+      "mae": 24.153163946297273,
+      "rmse": 32.16517357771582
+    },
+    "val": {
+      "r2": 0.9994575589365238,
+      "mae": 15.199133659722651,
+      "rmse": 23.720999313198902
+    },
+    "test": {
+      "r2": 0.9973663024268777,
+      "mae": 35.0536267009481,
+      "rmse": 63.295684115647
+    }
+  },
+  "experiment_name": "test_registry",
+  "best_params": {
+    "max_depth": 3,
+    "learning_rate": 0.01,
+    "subsample": 0.9,
+    "colsample_bytree": 0.9,
+    "reg_lambda": 0.5,
+    "reg_alpha": 0.0,
+    "objective": "reg:squarederror",
+    "n_estimators": 2000,
+    "random_state": 42,
+    "n_jobs": -1
+  }
+}

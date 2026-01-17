@@ -1,0 +1,36 @@
+{
+  "model_version": "demo_20260110_155320",
+  "model_type": "XGBRegressor",
+  "tuning_method": "Optuna (demo)",
+  "best_hyperparameters": {
+    "n_estimators": 226,
+    "max_depth": 6,
+    "min_child_weight": 3,
+    "learning_rate": 0.03195879743482072,
+    "subsample": 0.8029632236805949,
+    "colsample_bytree": 0.6848734651630105,
+    "reg_lambda": 1.2303616213380453,
+    "reg_alpha": 0.18318092164684585
+  },
+  "metrics_holdout": {
+    "mae": 18.26796995638828,
+    "rmse": 21.934640672567145,
+    "r2": -0.15896541552629162,
+    "mape": 15.268482609588464
+  },
+  "training_date": "2026-01-10T15:53:20.350337",
+  "train_samples": 330,
+  "holdout_samples": 66,
+  "train_period_start": "2025-01-01 00:00:00",
+  "train_period_end": "2025-10-01 00:00:00",
+  "holdout_period_start": "2025-11-01 00:00:00",
+  "holdout_period_end": "2025-12-01 00:00:00",
+  "n_features": 4,
+  "feature_names": [
+    "feature_1",
+    "feature_2",
+    "feature_3",
+    "feature_4"
+  ],
+  "best_iteration": -1
+}

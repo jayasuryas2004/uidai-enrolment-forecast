@@ -1,0 +1,166 @@
+{
+  "timestamp": "2026-01-12T15:44:56.733708",
+  "worst_states_by_mae": [
+    "Rajasthan",
+    "Uttar Pradesh",
+    "Telangana",
+    "Tamil Nadu",
+    "Punjab"
+  ],
+  "worst_states_by_mape": [
+    "Sikkim",
+    "Tripura",
+    "Rajasthan",
+    "Tamil Nadu",
+    "Telangana"
+  ],
+  "worst_states_combined": [
+    "Rajasthan",
+    "Uttar Pradesh",
+    "Punjab",
+    "Telangana",
+    "Tripura",
+    "Tamil Nadu",
+    "Sikkim"
+  ],
+  "under_prediction_months": [
+    9
+  ],
+  "highest_mae_bucket": "high",
+  "state_error_stats": [
+    {
+      "state": "Rajasthan",
+      "mae": 400.4121635821687,
+      "mape": 47.947585857447365,
+      "median_rel_error": 0.04626763613197759,
+      "count": 119
+    },
+    {
+      "state": "Uttar Pradesh",
+      "mae": 331.685311453683,
+      "mape": 10.696482566436353,
+      "median_rel_error": 0.05874106534541103,
+      "count": 14
+    },
+    {
+      "state": "Telangana",
+      "mae": 158.34245658450658,
+      "mape": 19.936759937409978,
+      "median_rel_error": -0.05845056676995374,
+      "count": 90
+    },
+    {
+      "state": "Tamil Nadu",
+      "mae": 150.02752023455741,
+      "mape": 28.374137236536296,
+      "median_rel_error": 0.04568467747269087,
+      "count": 87
+    },
+    {
+      "state": "Punjab",
+      "mae": 35.292445741850756,
+      "mape": 13.383160066381016,
+      "median_rel_error": 0.05256959567334672,
+      "count": 29
+    },
+    {
+      "state": "Tripura",
+      "mae": 33.7279478708903,
+      "mape": 93.01889680673027,
+      "median_rel_error": 0.030970537984909112,
+      "count": 18
+    },
+    {
+      "state": "Sikkim",
+      "mae": 19.24663756875431,
+      "mape": 116.05053943366576,
+      "median_rel_error": 0.42957775092801564,
+      "count": 17
+    }
+  ],
+  "month_error_stats": [
+    {
+      "month": 9,
+      "median_rel_error": -0.118716841286385,
+      "mean_rel_error": -0.10849039496365592,
+      "mae": 582.1319772820724,
+      "count": 38
+    },
+    {
+      "month": 11,
+      "median_rel_error": 0.018012053157185764,
+      "mean_rel_error": 0.15816105075258954,
+      "mae": 85.95218228038989,
+      "count": 152
+    },
+    {
+      "month": 10,
+      "median_rel_error": 0.09045950286162809,
+      "mean_rel_error": 0.2618436143466893,
+      "mae": 119.67001681999872,
+      "count": 149
+    },
+    {
+      "month": 12,
+      "median_rel_error": 0.18613822904436456,
+      "mean_rel_error": 0.22608285074672752,
+      "mae": 125.9305648803711,
+      "count": 4
+    },
+    {
+      "month": 7,
+      "median_rel_error": 0.3988982565025814,
+      "mean_rel_error": 0.6768709209624546,
+      "mae": 969.8801845974392,
+      "count": 18
+    },
+    {
+      "month": 6,
+      "median_rel_error": 0.9839384324587943,
+      "mean_rel_error": 3.395907576747777,
+      "mae": 697.5043090820312,
+      "count": 5
+    },
+    {
+      "month": 5,
+      "median_rel_error": 1.1033544845632464,
+      "mean_rel_error": 2.4112834655757083,
+      "mae": 957.3187662760416,
+      "count": 6
+    },
+    {
+      "month": 4,
+      "median_rel_error": 1.4559178363233582,
+      "mean_rel_error": 1.4559178363233582,
+      "mae": 672.0274658203125,
+      "count": 2
+    }
+  ],
+  "bucket_error_stats": [
+    {
+      "volume_bucket": "low",
+      "mae": 70.11052091660038,
+      "mape": 80.69009912781026,
+      "mean_bias": 56.74825563738423,
+      "median_bias": 9.130071640014648,
+      "count": 124
+    },
+    {
+      "volume_bucket": "medium",
+      "mae": 188.2098662361266,
+      "mape": 20.867651303243715,
+      "mean_bias": 139.3235112750341,
+      "median_bias": 51.531280517578125,
+      "count": 126
+    },
+    {
+      "volume_bucket": "high",
+      "mae": 396.33456667007937,
+      "mape": 12.248277465106703,
+      "mean_bias": -125.87382211992818,
+      "median_bias": -67.7105712890625,
+      "count": 124
+    }
+  ],
+  "validation_size": 374
+}

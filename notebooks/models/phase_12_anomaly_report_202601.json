@@ -1,0 +1,41 @@
+{
+  "phase": "12.2",
+  "timestamp": "2026-01-12T15:45:02.247832",
+  "version": "202601",
+  "rules_applied": {
+    "small_denominator": {
+      "threshold": 5,
+      "description": "Actual volume below threshold causes MAPE inflation",
+      "count": 65,
+      "percentage": 2.7
+    },
+    "zero_volume": {
+      "description": "Actual volume is zero (division by zero in MAPE)",
+      "count": 0,
+      "percentage": 0.0
+    },
+    "statistical_outlier": {
+      "description": "Value deviates >3 std from 3-month rolling mean",
+      "count": 0,
+      "percentage": 0.0
+    }
+  },
+  "total_anomalies": {
+    "count": 65,
+    "percentage": 2.7
+  },
+  "cleaning_actions": {
+    "smoothed_outliers": 0,
+    "method": "Replace with 3-month rolling mean"
+  },
+  "extreme_mape_states": {
+    "JAMMU AND KASHMIR": {
+      "total_rows": 59,
+      "anomaly_rows": 3
+    },
+    "ODISHA": {
+      "total_rows": 142,
+      "anomaly_rows": 12
+    }
+  }
+}

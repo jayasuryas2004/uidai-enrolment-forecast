@@ -1,0 +1,36 @@
+{
+  "experiment_date": "2026-01-12T15:44:56.678865",
+  "version": "202601",
+  "outcome": "no_promotion",
+  "champion_metrics": {
+    "MAE": 341.3890358920892,
+    "RMSE": 800.8217336906407,
+    "R2": 0.7987344549605485,
+    "MAPE": 255.89316434870744
+  },
+  "challenger_metrics": {
+    "MAE": 341.15403474664686,
+    "RMSE": 792.4823656926459,
+    "R2": 0.8029043924426627,
+    "MAPE": 137.79766197295092
+  },
+  "promotion_decision": {
+    "promote": false,
+    "mae_improve": 0.0006883675828319519,
+    "champion_metrics": {
+      "MAE": 341.3890358920892,
+      "RMSE": 800.8217336906407,
+      "R2": 0.7987344549605485,
+      "MAPE": 255.89316434870744
+    },
+    "challenger_metrics": {
+      "MAE": 341.15403474664686,
+      "RMSE": 792.4823656926459,
+      "R2": 0.8029043924426627,
+      "MAPE": 137.79766197295092
+    },
+    "reason": "\u274c BLOCKED: \u2717 MAE improvement 0.07% < 2% threshold; \u2713 R\u00b2 change +0.0042 (within -0.01 tolerance); \u2713 MAPE 137.80% vs threshold 268.69%"
+  },
+  "challenger_config": "extra_features",
+  "note": "Phase-8 champion remains official. This run was experiment-only."
+}

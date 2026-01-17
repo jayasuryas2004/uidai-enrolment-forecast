@@ -1,0 +1,52 @@
+{
+  "experiment_name": "tuning_exp_01",
+  "timestamp": "2026-01-13T22:02:12.760308",
+  "tuning_config": {
+    "n_iter": 10,
+    "n_folds": 3,
+    "gap_months": 1,
+    "test_months": 1
+  },
+  "feature_config": {
+    "lags": [
+      1,
+      2,
+      3,
+      6
+    ],
+    "rolling_windows": [
+      3,
+      6
+    ],
+    "n_features": 48
+  },
+  "cv_metrics": {
+    "cv_mae_mean": 149.7123,
+    "cv_mae_std": 120.4587,
+    "cv_mae_per_fold": [
+      319.9426,
+      70.2266,
+      58.9678
+    ]
+  },
+  "test_metrics": {
+    "test_r2": 0.9965,
+    "test_mae": 19.346,
+    "test_rmse": 27.6715
+  },
+  "best_params": {
+    "colsample_bytree": 0.777634,
+    "gamma": 0.397513,
+    "learning_rate": 0.038703,
+    "max_depth": 4,
+    "min_child_weight": 2,
+    "reg_alpha": 0.17031,
+    "reg_lambda": 0.531313,
+    "subsample": 0.952685
+  },
+  "comparison": {
+    "baseline_cv_mae": 124.16,
+    "improvement_pct": -20.58,
+    "is_improvement": false
+  }
+}

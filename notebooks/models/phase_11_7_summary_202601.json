@@ -1,0 +1,86 @@
+{
+  "phase": "11.7",
+  "timestamp": "2026-01-12T15:45:01.713987",
+  "version": "202601",
+  "overall_metrics": {
+    "Champion": {
+      "MAE": 385.6705382507366,
+      "RMSE": 598.0740840323532,
+      "R2": 0.8157927135585811,
+      "MAPE": 2099.250666019971
+    },
+    "Challenger_A2": {
+      "MAE": 385.6705382507366,
+      "RMSE": 598.0740840323532,
+      "R2": 0.8157927135585811,
+      "MAPE": 2099.250666019971
+    },
+    "Challenger_B2": {
+      "MAE": 309.01223917227475,
+      "RMSE": 493.2852149420737,
+      "R2": 0.8746878922732866,
+      "MAPE": 947.2459154378346
+    }
+  },
+  "best_model": {
+    "name": "Challenger_B2",
+    "mae": 309.01223917227475
+  },
+  "promotion_results": {
+    "Challenger_A2": {
+      "decision": "blocked",
+      "reason": "\u274c BLOCKED: \u2717 MAE improvement 0.00% < 2% threshold; \u2713 R\u00b2 change +0.0000 (within -0.01 tolerance); \u2713 MAPE 2099.25% vs threshold 2204.21%",
+      "mae_improvement": 0.0,
+      "r2_delta": 0.0,
+      "mape_delta": 0.0,
+      "uses_v2_features": true,
+      "feature_builder": "build_challenger_features_v2"
+    },
+    "Challenger_B2": {
+      "decision": "promote",
+      "reason": "\u2705 PROMOTED: \u2713 MAE improved by 19.88% (>= 2% threshold); \u2713 R\u00b2 change +0.0589 (within -0.01 tolerance); \u2713 MAPE 947.25% vs threshold 2204.21%",
+      "mae_improvement": 0.19876628229409604,
+      "r2_delta": 0.05889517871470551,
+      "mape_delta": -1152.0047505821365,
+      "uses_v2_features": true,
+      "feature_builder": "build_challenger_features_v2"
+    }
+  },
+  "models_promoted": [
+    "Challenger_B2"
+  ],
+  "safety_results": {
+    "A2": true,
+    "B2": true
+  },
+  "safe_for_deployment": [
+    "Challenger_B2"
+  ],
+  "weak_segments": {
+    "persistent_weak_states": [
+      "PUNJAB",
+      "SIKKIM",
+      "WEST  BENGAL",
+      "LADAKH",
+      "DADRA AND NAGAR HAVELI AND DAMAN AND DIU",
+      "ANDHRA PRADESH",
+      "ODISHA",
+      "PUDUCHERRY",
+      "TELANGANA",
+      "WEST BENGAL",
+      "UTTAR PRADESH",
+      "WEST BANGAL",
+      "RAJASTHAN",
+      "TRIPURA",
+      "JAMMU AND KASHMIR",
+      "UTTARAKHAND",
+      "CHHATTISGARH"
+    ],
+    "persistent_under_prediction_months": []
+  },
+  "files_generated": [
+    "models\\weak_segments_summary_202601_v2.json",
+    "models\\segment_challengers_202601.json",
+    "models\\safety_check_v2_202601.json"
+  ]
+}

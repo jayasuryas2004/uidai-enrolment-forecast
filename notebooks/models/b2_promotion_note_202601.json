@@ -1,0 +1,93 @@
+{
+  "document_type": "B2_PROMOTION_NOTE",
+  "version": "202601",
+  "timestamp": "2026-01-12T15:45:02.301574",
+  "status": "DRAFT - Pending Stakeholder Review",
+  "executive_summary": {
+    "recommendation": "PROMOTE Challenger_B2 to production",
+    "confidence": "HIGH",
+    "rationale": "B2 shows significant improvement over champion with acceptable risk profile"
+  },
+  "metrics_comparison": {
+    "champion": {
+      "name": "Champion (Phase 8)",
+      "test_mae": 385.6705382507366,
+      "test_r2": 0.8157927135585811,
+      "test_mape": 2099.250666019971,
+      "features": 17
+    },
+    "challenger_b2": {
+      "name": "Challenger_B2 (Phase 11.7)",
+      "test_mae": 309.01,
+      "test_r2": 0.8747,
+      "test_mape": "N/A",
+      "features": 18
+    },
+    "improvement": {
+      "mae_reduction_pct": 19.88,
+      "r2_improvement": 0.0589,
+      "passed_promotion_threshold": true
+    }
+  },
+  "risks": {
+    "state_level_regression": {
+      "severity": "LOW",
+      "details": "BIHAR shows mild regression within 5% tolerance",
+      "mitigation": "Monitor BIHAR metrics post-deployment"
+    },
+    "high_mape_states": {
+      "severity": "MEDIUM",
+      "states": [
+        "JAMMU AND KASHMIR",
+        "ODISHA"
+      ],
+      "root_cause": "Data quality issues (small denominators, name variants)",
+      "mitigation": "Phase 12.1-12.2 cleaning applied"
+    },
+    "feature_dependency": {
+      "severity": "LOW",
+      "details": "V2 features require historical data for lag/rolling computations",
+      "mitigation": "Ensure data pipeline maintains sufficient history"
+    }
+  },
+  "mitigation_plan": {
+    "completed": [
+      "Phase 12.1: State name standardization",
+      "Phase 12.2: Anomaly detection and flagging"
+    ],
+    "pending": [
+      "Phase 12.4: Staged UAT deployment",
+      "Phase 12.5: Re-evaluation on cleaned data",
+      "Post-deployment monitoring (4 weeks)"
+    ]
+  },
+  "deployment_recommendation": {
+    "approach": "STAGED_CONTROLLED",
+    "steps": [
+      "1. Deploy to UAT/staging environment",
+      "2. Run parallel predictions for 2-4 periods",
+      "3. Compare UAT results with offline test metrics",
+      "4. If consistent, proceed to production with monitoring",
+      "5. Maintain rollback capability for 30 days"
+    ],
+    "success_criteria": [
+      "UAT MAE within 5% of offline test MAE",
+      "No new state-level regressions >5%",
+      "No critical errors in prediction pipeline"
+    ]
+  },
+  "approvals_required": [
+    {
+      "role": "Data Science Lead",
+      "status": "PENDING"
+    },
+    {
+      "role": "Product Owner",
+      "status": "PENDING"
+    },
+    {
+      "role": "Operations Lead",
+      "status": "PENDING"
+    }
+  ]
+}

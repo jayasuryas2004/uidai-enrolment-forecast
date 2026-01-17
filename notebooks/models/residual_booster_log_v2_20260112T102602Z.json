@@ -1,0 +1,27 @@
+{
+  "experiment": "residual_booster_v2_20260112T102602Z",
+  "phase": "16.1.V2",
+  "timestamp": "20260112T102602Z",
+  "config": {
+    "strategy": "exclude_very_small_bucket",
+    "training_rows": 1651,
+    "excluded_rows": 345,
+    "excluded_bucket": "Very Small (<100)"
+  },
+  "metrics_test": {
+    "model": "Residual_Boosted_v2",
+    "MAE": 993.3265797119141,
+    "RMSE": 1560.3043531363858,
+    "R\u00b2": 0.35498342329668897,
+    "MAPE": 4941.9134462141055
+  },
+  "baseline_b2": {
+    "model": "B2",
+    "MAE": 1512.4189570772648,
+    "RMSE": 2359.2599628657413,
+    "R\u00b2": -0.47470051222529985,
+    "MAPE": 344.0752496349869
+  },
+  "promote": false,
+  "status": "analysis-only"
+}

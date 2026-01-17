@@ -1,0 +1,15 @@
+{
+  "current_champion": {
+    "version": "B2_202601",
+    "label": "Champion (B2 - B2_202601)",
+    "color": "#2E86AB",
+    "marker": "o"
+  },
+  "previous_champion": {
+    "version": "B2_202601",
+    "label": "Previous Champion (B2_202601)",
+    "color": "#A23B72",
+    "marker": "s"
+  },
+  "note": "Use CURRENT_CHAMPION for new predictions, OLD_CHAMPION for historical comparison"
+}

@@ -1,0 +1,34 @@
+{
+  "model_name": "uidai_xgb_champion",
+  "model_type": "XGBRegressor",
+  "pipeline_steps": [
+    "preprocess",
+    "model"
+  ],
+  "feature_count": 18,
+  "hyperparameters": {
+    "n_estimators": 500,
+    "max_depth": 5,
+    "learning_rate": 0.05,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "reg_alpha": 0.2,
+    "reg_lambda": 1.5,
+    "min_child_weight": null,
+    "early_stopping_rounds": 30,
+    "best_iteration": 49
+  },
+  "train_metrics": {
+    "MAE": 318.33,
+    "RMSE": 514.74,
+    "R2": 0.8595
+  },
+  "validation_metrics": {
+    "MAE": 329.94,
+    "RMSE": 475.97,
+    "R2": 0.6798
+  },
+  "train_val_r2_gap": 0.1798,
+  "created_at": "2026-01-12T15:44:26.363088",
+  "notes": "Champion model selected in Phase 4.6. Includes preprocessing + XGBoost with early stopping."
+}
