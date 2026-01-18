@@ -82,11 +82,35 @@ st.markdown(
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     
-    /* Container max-width */
+    /* Container max-width and TOP PADDING for heading visibility */
     .block-container {
-        padding-top: 1.5rem;
+        padding-top: 50px !important;
         padding-bottom: 1.5rem;
         max-width: 1400px;
+    }
+    
+    /* Page headers - proper spacing from top */
+    .uidai-page-header {
+        margin-top: 20px !important;
+        margin-bottom: 8px !important;
+        padding-top: 10px !important;
+    }
+    
+    /* First element on page - extra top margin */
+    .main .block-container > div:first-child {
+        margin-top: 10px !important;
+    }
+    
+    /* H1, H2, H3 headings - proper spacing */
+    .main h1:first-of-type,
+    .main h2:first-of-type {
+        margin-top: 20px !important;
+        padding-top: 10px !important;
+    }
+    
+    /* Streamlit header - make transparent */
+    header[data-testid="stHeader"] {
+        background-color: transparent !important;
     }
     
     /* Card styling - BoldBI style */
@@ -153,56 +177,102 @@ st.markdown(
         margin-bottom: 1.25rem;
     }
     
-    /* Sidebar styling - enhanced navigation UI */
+    /* Sidebar styling - FULL WIDTH navigation UI */
     section[data-testid="stSidebar"] {
         background-color: #f8fafc !important;
         border-right: 2px solid #e2e8f0;
+        padding-top: 0 !important;
     }
     section[data-testid="stSidebar"] > div:first-child {
         background-color: #f8fafc !important;
+        padding-top: 0 !important;
     }
     section[data-testid="stSidebar"] .stMarkdown {
         font-family: 'Inter', 'Roboto', system-ui, sans-serif;
     }
     
-    /* Sidebar navigation radio container */
+    /* Navigation radio container - full width, no padding */
     section[data-testid="stSidebar"] .stRadio > div {
-        background-color: #ffffff;
-        border-radius: 12px;
-        padding: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        background-color: transparent !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
     }
     
-    /* Each navigation option */
+    /* Each navigation option - FULL WIDTH */
     section[data-testid="stSidebar"] .stRadio > div > label {
-        background-color: transparent;
-        padding: 12px 16px !important;
-        border-radius: 8px;
-        margin: 4px 0;
+        display: block !important;
+        width: 100% !important;
+        padding: 14px 20px !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
         cursor: pointer;
         transition: all 0.2s ease;
-        display: flex;
-        align-items: center;
         color: #374151 !important;
-        font-weight: 500;
+        font-weight: 500 !important;
+        font-size: 15px !important;
+        border-left: 4px solid transparent !important;
+        background-color: transparent !important;
     }
     
-    /* Hover effect on navigation items */
+    /* Hover effect - full width highlight */
     section[data-testid="stSidebar"] .stRadio > div > label:hover {
         background-color: #e0f2fe !important;
         color: #0369a1 !important;
+        border-left: 4px solid #0284c7 !important;
     }
     
-    /* Selected/Active navigation item - blue highlight */
+    /* Selected/Active navigation item - FULL WIDTH blue background */
     section[data-testid="stSidebar"] .stRadio div[role="radiogroup"] label[data-baseweb="radio"]:has(input:checked),
     section[data-testid="stSidebar"] .stRadio > div[role="radiogroup"] > label:has(input:checked) {
         background-color: #0284c7 !important;
         color: #ffffff !important;
-        font-weight: 600;
-        box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+        font-weight: 600 !important;
+        border-left: 4px solid #0c4a6e !important;
+        width: 100% !important;
+        display: block !important;
     }
     section[data-testid="stSidebar"] .stRadio div[role="radiogroup"] label:has(input:checked) p {
         color: #ffffff !important;
+    }
+    
+    /* Radio input container - full width */
+    section[data-testid="stSidebar"] [data-baseweb="radio"] {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    section[data-testid="stSidebar"] [data-baseweb="radio"] > div {
+        width: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        padding: 14px 20px !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        border-left: 4px solid transparent !important;
+        transition: all 0.2s ease !important;
+    }
+    section[data-testid="stSidebar"] [data-baseweb="radio"] > div:hover {
+        background-color: #e0f2fe !important;
+        border-left: 4px solid #0284c7 !important;
+    }
+    section[data-testid="stSidebar"] [data-baseweb="radio"] > div:has(input:checked) {
+        background-color: #0284c7 !important;
+        border-left: 4px solid #0c4a6e !important;
+    }
+    section[data-testid="stSidebar"] [data-baseweb="radio"] > div:has(input:checked) div {
+        color: #ffffff !important;
+        font-weight: 600 !important;
+    }
+    
+    /* Hide radio circle completely */
+    section[data-testid="stSidebar"] .stRadio input[type="radio"],
+    section[data-testid="stSidebar"] [data-baseweb="radio"] input {
+        display: none !important;
+    }
+    section[data-testid="stSidebar"] [data-baseweb="radio"] > div > div:first-child {
+        display: none !important;
     }
     
     /* Force dark text on sidebar - override system dark mode */
@@ -1122,6 +1192,9 @@ def render_top_districts(df_eval: pd.DataFrame, metric: str = "high"):
 
 def render_overview_page(df_eval: pd.DataFrame):
     """Render the Overview page (BoldBI government dashboard style)."""
+    # Spacer to push content below Streamlit header
+    st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
+    
     st.markdown(
         """
         <div class="uidai-page-header">UIDAI Enrolment Forecast – Phase‑4 v3</div>
@@ -1198,6 +1271,9 @@ def render_overview_page(df_eval: pd.DataFrame):
 
 def render_explorer_page(df_eval: pd.DataFrame, selected_state: str, selected_district: str):
     """Render the District Explorer page."""
+    # Spacer to push content below Streamlit header
+    st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
+    
     st.markdown(
         """
         <div class="uidai-page-header">🔍 District Explorer</div>
@@ -1320,6 +1396,9 @@ def build_state_level_metrics(df_eval: pd.DataFrame) -> pd.DataFrame:
 
 def render_india_map_page(df_eval: pd.DataFrame):
     """Render the India Map page with state-level forecast quality."""
+    # Spacer to push content below Streamlit header
+    st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
+    
     st.markdown(
         """
         <div class="uidai-page-header">🗺️ India Map – Forecast Quality by State</div>
@@ -1581,6 +1660,9 @@ def render_local_shap_section():
 
 def render_about_page():
     """Render the About Model page with model details and methodology."""
+    # Spacer to push content below Streamlit header
+    st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
+    
     st.markdown(
         """
         <div class="uidai-page-header">ℹ️ About the Model</div>

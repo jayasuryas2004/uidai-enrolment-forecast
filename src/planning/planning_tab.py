@@ -291,6 +291,9 @@ def planning_tab():
     # Inject CSS
     st.markdown(PLANNING_TAB_CSS, unsafe_allow_html=True)
     
+    # Spacer to push content below Streamlit header
+    st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
+    
     # Header
     st.markdown(
         f"""
