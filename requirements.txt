@@ -15,6 +15,7 @@ joblib>=1.4.0
 
 # Visualization
 plotly>=5.22.0
+matplotlib>=3.9.0
 
 # HTTP requests (for Ollama LLM - optional)
 requests>=2.31.0

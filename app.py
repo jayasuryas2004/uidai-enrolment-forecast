@@ -153,16 +153,56 @@ st.markdown(
         margin-bottom: 1.25rem;
     }
     
-    /* Sidebar styling - clean government style, force light theme */
+    /* Sidebar styling - enhanced navigation UI */
     section[data-testid="stSidebar"] {
-        background-color: #ffffff !important;
-        border-right: 1px solid #e2e8f0;
+        background-color: #f8fafc !important;
+        border-right: 2px solid #e2e8f0;
     }
     section[data-testid="stSidebar"] > div:first-child {
-        background-color: #ffffff !important;
+        background-color: #f8fafc !important;
     }
     section[data-testid="stSidebar"] .stMarkdown {
         font-family: 'Inter', 'Roboto', system-ui, sans-serif;
+    }
+    
+    /* Sidebar navigation radio container */
+    section[data-testid="stSidebar"] .stRadio > div {
+        background-color: #ffffff;
+        border-radius: 12px;
+        padding: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    
+    /* Each navigation option */
+    section[data-testid="stSidebar"] .stRadio > div > label {
+        background-color: transparent;
+        padding: 12px 16px !important;
+        border-radius: 8px;
+        margin: 4px 0;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        color: #374151 !important;
+        font-weight: 500;
+    }
+    
+    /* Hover effect on navigation items */
+    section[data-testid="stSidebar"] .stRadio > div > label:hover {
+        background-color: #e0f2fe !important;
+        color: #0369a1 !important;
+    }
+    
+    /* Selected/Active navigation item - blue highlight */
+    section[data-testid="stSidebar"] .stRadio div[role="radiogroup"] label[data-baseweb="radio"]:has(input:checked),
+    section[data-testid="stSidebar"] .stRadio > div[role="radiogroup"] > label:has(input:checked) {
+        background-color: #0284c7 !important;
+        color: #ffffff !important;
+        font-weight: 600;
+        box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+    }
+    section[data-testid="stSidebar"] .stRadio div[role="radiogroup"] label:has(input:checked) p {
+        color: #ffffff !important;
     }
     
     /* Force dark text on sidebar - override system dark mode */
@@ -278,24 +318,24 @@ st.markdown(
         overflow: hidden;
     }
     
-    /* Dark/Light mode text handling */
-    @media (prefers-color-scheme: dark) {
-        h1, h2, h3, h4 { color: white !important; }
-        .stMetric label { color: white !important; }
-        .stMetric [data-testid="stMetricValue"] { color: white !important; }
-        .uidai-page-header { color: white !important; }
-        .uidai-section-title { color: white !important; }
-    }
-    @media (prefers-color-scheme: light) {
-        h1, h2, h3, h4 { color: #0f172a !important; }
-        .stMetric label { color: #0f172a !important; }
-        .stMetric [data-testid="stMetricValue"] { color: #0f172a !important; }
-    }
+    /* FORCE ALL TEXT TO DARK - Permanent fix for dark mode */
+    h1, h2, h3, h4, h5, h6 { color: #0f172a !important; }
+    p, span, div, label { color: #0f172a !important; }
+    .stMarkdown, .stMarkdown p { color: #0f172a !important; }
+    .stMetric label { color: #64748b !important; }
+    .stMetric [data-testid="stMetricValue"] { color: #0f172a !important; }
+    .stMetric div { color: #0f172a !important; }
+    
+    /* KPI cards text - always dark */
+    .uidai-kpi-label, .uidai-kpi-value, .uidai-kpi-subtitle { color: #0f172a !important; }
+    .uidai-page-header, .uidai-section-title { color: #0f172a !important; }
+    .uidai-page-subtitle, .uidai-subtitle { color: #64748b !important; }
     
     /* Force main content text colors for readability */
     .main h1, .main h2, .main h3, .main h4 { color: #0f172a !important; }
     .main .stMetric label { color: #64748b !important; }
     .main .stMetric [data-testid="stMetricValue"] { color: #0f172a !important; }
+    .main p, .main span, .main label { color: #0f172a !important; }
     </style>
     """,
     unsafe_allow_html=True,
