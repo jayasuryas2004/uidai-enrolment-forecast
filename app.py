@@ -177,102 +177,56 @@ st.markdown(
         margin-bottom: 1.25rem;
     }
     
-    /* Sidebar styling - FULL WIDTH navigation UI */
+    /* Sidebar styling - enhanced navigation UI */
     section[data-testid="stSidebar"] {
         background-color: #f8fafc !important;
         border-right: 2px solid #e2e8f0;
-        padding-top: 0 !important;
     }
     section[data-testid="stSidebar"] > div:first-child {
         background-color: #f8fafc !important;
-        padding-top: 0 !important;
     }
     section[data-testid="stSidebar"] .stMarkdown {
         font-family: 'Inter', 'Roboto', system-ui, sans-serif;
     }
     
-    /* Navigation radio container - full width, no padding */
+    /* Sidebar navigation radio container */
     section[data-testid="stSidebar"] .stRadio > div {
-        background-color: transparent !important;
-        border-radius: 0 !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        box-shadow: none !important;
+        background-color: #ffffff;
+        border-radius: 12px;
+        padding: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
     
-    /* Each navigation option - FULL WIDTH */
+    /* Each navigation option */
     section[data-testid="stSidebar"] .stRadio > div > label {
-        display: block !important;
-        width: 100% !important;
-        padding: 14px 20px !important;
-        margin: 0 !important;
-        border-radius: 0 !important;
+        background-color: transparent;
+        padding: 12px 16px !important;
+        border-radius: 8px;
+        margin: 4px 0;
         cursor: pointer;
         transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
         color: #374151 !important;
-        font-weight: 500 !important;
-        font-size: 15px !important;
-        border-left: 4px solid transparent !important;
-        background-color: transparent !important;
+        font-weight: 500;
     }
     
-    /* Hover effect - full width highlight */
+    /* Hover effect on navigation items */
     section[data-testid="stSidebar"] .stRadio > div > label:hover {
         background-color: #e0f2fe !important;
         color: #0369a1 !important;
-        border-left: 4px solid #0284c7 !important;
     }
     
-    /* Selected/Active navigation item - FULL WIDTH blue background */
+    /* Selected/Active navigation item - blue highlight */
     section[data-testid="stSidebar"] .stRadio div[role="radiogroup"] label[data-baseweb="radio"]:has(input:checked),
     section[data-testid="stSidebar"] .stRadio > div[role="radiogroup"] > label:has(input:checked) {
         background-color: #0284c7 !important;
         color: #ffffff !important;
-        font-weight: 600 !important;
-        border-left: 4px solid #0c4a6e !important;
-        width: 100% !important;
-        display: block !important;
+        font-weight: 600;
+        box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
     }
     section[data-testid="stSidebar"] .stRadio div[role="radiogroup"] label:has(input:checked) p {
         color: #ffffff !important;
-    }
-    
-    /* Radio input container - full width */
-    section[data-testid="stSidebar"] [data-baseweb="radio"] {
-        width: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-    section[data-testid="stSidebar"] [data-baseweb="radio"] > div {
-        width: 100% !important;
-        display: flex !important;
-        align-items: center !important;
-        padding: 14px 20px !important;
-        margin: 0 !important;
-        border-radius: 0 !important;
-        border-left: 4px solid transparent !important;
-        transition: all 0.2s ease !important;
-    }
-    section[data-testid="stSidebar"] [data-baseweb="radio"] > div:hover {
-        background-color: #e0f2fe !important;
-        border-left: 4px solid #0284c7 !important;
-    }
-    section[data-testid="stSidebar"] [data-baseweb="radio"] > div:has(input:checked) {
-        background-color: #0284c7 !important;
-        border-left: 4px solid #0c4a6e !important;
-    }
-    section[data-testid="stSidebar"] [data-baseweb="radio"] > div:has(input:checked) div {
-        color: #ffffff !important;
-        font-weight: 600 !important;
-    }
-    
-    /* Hide radio circle completely */
-    section[data-testid="stSidebar"] .stRadio input[type="radio"],
-    section[data-testid="stSidebar"] [data-baseweb="radio"] input {
-        display: none !important;
-    }
-    section[data-testid="stSidebar"] [data-baseweb="radio"] > div > div:first-child {
-        display: none !important;
     }
     
     /* Force dark text on sidebar - override system dark mode */
