@@ -491,6 +491,33 @@ def load_v3_official_metrics():
     }
 
 
+def load_cell49_metrics():
+    """
+    Load Cell 49 metrics from real new data testing.
+    These are the production-validated metrics on new test data.
+    
+    Returns Cell 49 metrics dictionary with:
+    - r2_full: 0.8806 (Full dataset evaluation)
+    - mae_full: 82.67
+    - rmse_full: 456.85
+    - mape_full: 27.64
+    - samples_tested: 2496
+    - records_processed: 5060 (district-months)
+    - states: 55
+    - districts: 984
+    """
+    return {
+        "r2_full": 0.8806,
+        "mae_full": 82.67,
+        "rmse_full": 456.85,
+        "mape_full": 27.64,
+        "samples_tested": 2496,
+        "records_processed": 5060,
+        "states": 55,
+        "districts": 984,
+    }
+
+
 def compute_local_metrics(df_sel: pd.DataFrame):
     """
     Compute local R², MAE for a filtered subset (district/state).
@@ -581,6 +608,48 @@ def render_global_kpi_row(df_eval: pd.DataFrame):
             label="Districts",
             value=f"{n_districts:,}",
             subtitle=f"Phase-4 timeframe ({n_months} months)",
+        )
+
+
+def render_cell49_kpi_row():
+    """
+    Render Cell 49 metrics: New data testing results.
+    Displays real production metrics on new test data.
+    """
+    cell49_metrics = load_cell49_metrics()
+    
+    c1, c2, c3, c4 = st.columns(4)
+    
+    with c1:
+        kpi_card(
+            label="🎯 R² (Cell 49)",
+            value=f"{cell49_metrics['r2_full']:.4f}",
+            subtitle="Full dataset validation",
+            delta="✓ Excellent",
+            good=True,
+        )
+    
+    with c2:
+        kpi_card(
+            label="📊 MAE (Cell 49)",
+            value=f"{cell49_metrics['mae_full']:.2f}",
+            subtitle="New data avg error",
+            delta="✓ Low error",
+            good=True,
+        )
+    
+    with c3:
+        kpi_card(
+            label="📈 RMSE (Cell 49)",
+            value=f"{cell49_metrics['rmse_full']:.2f}",
+            subtitle="Robust error metric",
+        )
+    
+    with c4:
+        kpi_card(
+            label="% Error (MAPE)",
+            value=f"{cell49_metrics['mape_full']:.2f}%",
+            subtitle="Percentage-based metric",
         )
 
 
@@ -1145,7 +1214,7 @@ def render_top_districts(df_eval: pd.DataFrame, metric: str = "high"):
 # =============================================================================
 
 def render_overview_page(df_eval: pd.DataFrame):
-    """Render the Overview page (BoldBI government dashboard style)."""
+    """Render the Overview page (BoldBI government dashboard style) with Cell 49 metrics."""
     # Spacer to push content below Streamlit header
     st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
     
@@ -1157,12 +1226,73 @@ def render_overview_page(df_eval: pd.DataFrame):
         unsafe_allow_html=True,
     )
     
-    # Row 1: KPI cards (official CV metrics from frozen JSON)
+    # === ROW 1: TRAINING CV METRICS (Official) ===
+    st.markdown(
+        """
+        <div style='margin-top: 1.5rem; margin-bottom: 0.5rem;'>
+            <div class="uidai-section-title">📊 Training Metrics (Time-Series CV)</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
     render_global_kpi_row(df_eval)
+    st.markdown("")  # spacing
+    
+    # === ROW 2: CELL 49 METRICS (New Data Testing) ===
+    st.markdown(
+        """
+        <div style='margin-top: 1.5rem; margin-bottom: 0.5rem;'>
+            <div class="uidai-section-title">🔬 Cell 49: New Data Testing Results</div>
+            <p style='color: #6b7280; font-size: 0.85rem; margin-top: -0.5rem;'>
+                Production validation on 1,006,029 raw UIDAI records → 5,060 cleaned district-month records
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+    render_cell49_kpi_row()
+    
+    # === DATA COVERAGE METRICS ===
+    st.markdown("")
+    st.markdown(
+        """
+        <div class="uidai-card">
+            <div class="uidai-section-title">📍 Geographic & Temporal Coverage (Cell 49)</div>
+        """,
+        unsafe_allow_html=True,
+    )
+    col_cov1, col_cov2, col_cov3, col_cov4 = st.columns(4)
+    cell49_data = load_cell49_metrics()
+    
+    with col_cov1:
+        kpi_card(
+            label="Records Processed",
+            value=f"{cell49_data['records_processed']:,}",
+            subtitle="District-month aggregates",
+        )
+    with col_cov2:
+        kpi_card(
+            label="Districts",
+            value=f"{cell49_data['districts']}",
+            subtitle="Geographic units",
+        )
+    with col_cov3:
+        kpi_card(
+            label="States",
+            value=f"{cell49_data['states']}",
+            subtitle="Full coverage",
+        )
+    with col_cov4:
+        kpi_card(
+            label="Samples",
+            value=f"{cell49_data['samples_tested']:,}",
+            subtitle="Training dataset",
+        )
+    st.markdown("</div>", unsafe_allow_html=True)
     
     st.markdown("")  # spacing
     
-    # Row 2: Large national time-series + MAE by state
+    # === ROW 3: Large national time-series + MAE by state ===
     col1, col2 = st.columns([2, 1])
     
     with col1:
@@ -1221,6 +1351,60 @@ def render_overview_page(df_eval: pd.DataFrame):
     # Row 4: Capacity planning widget
     st.markdown("")  # spacing
     render_capacity_planning_widget(df_eval)
+    
+    # === ROW 5: ALL 9 FIGURES IN TABS ===
+    st.markdown("")  # spacing
+    st.markdown(
+        """
+        <div class="uidai-card">
+            <div class="uidai-section-title">📸 Complete Model Analysis Visualizations</div>
+            <p style="color: #6b7280; font-size: 0.85rem; margin-top: -0.5rem;">
+                All 9 figures from Cell 49 & Training analysis for PDF submission
+            </p>
+        """,
+        unsafe_allow_html=True,
+    )
+    
+    tabs = st.tabs([
+        "🔧 CV Fold Structure",
+        "📊 Actual vs Forecast",
+        "📉 MAE by State",
+        "📋 Residuals",
+        "🎯 Scatter Plot",
+        "🔍 SHAP Features",
+        "🏗️ Capacity Planning",
+        "📈 Analysis",
+        "🌍 State Performance"
+    ])
+    
+    fig_files = [
+        ("01_cv_fold_structure.png", "CV Fold Structure: Expanding Window with 1-Month Gap"),
+        ("02_actual_vs_forecast.png", "National Forecast: Actual vs Predicted"),
+        ("03_mae_by_state.png", "MAE Analysis by State"),
+        ("04_residual_distribution.png", "Residual Distribution & Bias Check"),
+        ("05_scatter_actual_predicted.png", "Actual vs Predicted Scatter Plot"),
+        ("06_shap_feature_importance.png", "SHAP Feature Importance Analysis"),
+        ("07_capacity_planning_widget.png", "Capacity Planning: Gap Analysis by State"),
+        ("49_model_comprehensive_analysis.png", "Cell 49: Comprehensive Model Analysis (6-panel)"),
+        ("49_state_level_analysis.png", "Cell 49: State-Level Performance Analysis (4-panel)"),
+    ]
+    
+    for tab, (fig_file, caption) in zip(tabs, fig_files):
+        with tab:
+            try:
+                from PIL import Image
+                img_path = PROJECT_ROOT / "pdf_figures" / fig_file
+                if img_path.exists():
+                    img = Image.open(img_path)
+                    st.image(img, use_column_width=True, caption=caption)
+                else:
+                    st.warning(f"⚠️ Figure not found: {fig_file}")
+            except Exception as e:
+                st.error(f"❌ Error loading {fig_file}: {str(e)}")
+    
+    st.markdown("</div>", unsafe_allow_html=True)
+    
+    st.markdown("")  # spacing
 
 
 def render_explorer_page(df_eval: pd.DataFrame, selected_state: str, selected_district: str):
