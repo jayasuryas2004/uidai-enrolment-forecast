@@ -1371,7 +1371,6 @@ def render_overview_page(df_eval: pd.DataFrame):
         "📉 MAE by State",
         "📋 Residuals",
         "🎯 Scatter Plot",
-        "🔍 SHAP Features",
         "🏗️ Capacity Planning",
         "📈 Analysis",
         "🌍 State Performance"
@@ -1383,7 +1382,6 @@ def render_overview_page(df_eval: pd.DataFrame):
         ("03_mae_by_state.png", "MAE Analysis by State"),
         ("04_residual_distribution.png", "Residual Distribution & Bias Check"),
         ("05_scatter_actual_predicted.png", "Actual vs Predicted Scatter Plot"),
-        ("06_shap_feature_importance.png", "SHAP Feature Importance Analysis"),
         ("07_capacity_planning_widget.png", "Capacity Planning: Gap Analysis by State"),
         ("49_model_comprehensive_analysis.png", "Cell 49: Comprehensive Model Analysis (6-panel)"),
         ("49_state_level_analysis.png", "Cell 49: State-Level Performance Analysis (4-panel)"),
