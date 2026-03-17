@@ -1,0 +1,24 @@
+name: Keep Dashboard Awake
+
+# Run every 10 minutes
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  
+  # Also allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 🔄 Ping Streamlit Dashboard
+        run: |
+          echo "⏰ Pinging dashboard at $(date)"
+          curl -s -o /dev/null -w "HTTP Status: %{http_code}\n" \
+            https://uidai-enrolment-forecast-ujqcpqimtkozmmxpghvghu.streamlit.app/
+          echo "✅ Dashboard pinged successfully!"
+      
+      - name: 📊 Log timestamp
+        run: echo "Last pinged at $(date)" >> $GITHUB_STEP_SUMMARY
