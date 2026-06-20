@@ -22,3 +22,5 @@ requests>=2.31.0
 
 # Note: LightGBM is optional (used in experiments only)
 # lightgbm>=4.3.0
+
+groq
